@@ -1,15 +1,17 @@
 def get_score():
 
     import statsapi
+    from datetime import date
 
-
-    most_recent_game_id = statsapi.last_game(117)
-
+    most_recent_game_id = statsapi.next_game(117)
+    schedule = statsapi.schedule(team=117, start_date=date.today(), end_date=date.today())
+    current_game = schedule[0]['game_id']
 
     game = statsapi.get('game', params = {
-            "gamePk": most_recent_game_id,
+            "gamePk": current_game,
             "fields": "gameData,teams,teamName,shortName,status,abstractGameState,liveData,linescore,innings,num,home,away,runs,hits,errors",
         })
+    
 
     game_state = game["gameData"]["status"]["abstractGameState"]
 
