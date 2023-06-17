@@ -1,6 +1,5 @@
 body {
   font-family: "Playfair Display", serif;
-  background: rgb(255, 255, 255);
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 1) 0%,
@@ -22,30 +21,30 @@ h1{
   width: 50%;
   padding: 10px;
   text-align: center;
-  font-size: 70px;
+  font-size: 8vh;
   color: rgb(0, 165, 248);
   text-shadow: 0 0 10px black, 0 0 10px black;
 }
 
 h1.yn {
   font-weight: 800;
-  font-size: 80px;
+  font-size: 7vh;
 }
 
 h1.t {
   font-weight: 800;
-  font-size: 80px;
+  font-size: 7vh;
 }
 
 h1.y {
   font-weight: 800;
-  font-size: 80px;
+  font-size: 7vh;
   color: green;
 }
 
 h1.n {
   font-weight: 800;
-  font-size: 80px;
+  font-size: 7vh;
   color: red;
 }
 

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&display=swap");
     </style>
@@ -28,6 +29,9 @@
       <h2 class="current-score">
         {% if data.winning == 'Not playing now.' %}
             Last Score: Astros: {{ data.astros_score }} - {{ data.opp_name }}: {{ data.opp_score }}
+            {% if data.astros_score > data.opp_score %}
+             <img src="https://pbs.twimg.com/media/E5QC4MoWUAQYR3D.jpg" width="50%" height="50%">
+            {% endif %}
         {% else %}
             Astros: {{ data.astros_score }} - {{ data.opp_name }}: {{ data.opp_score }}
         {% endif %}
