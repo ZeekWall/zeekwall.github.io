@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="shortcut icon" href="{% static 'astros_app/favicon.ico' %}" type="image/x-icon">
+    <meta property="og:image" content="{% static 'astros_app/favicon.ico' %}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&display=swap");
@@ -28,9 +30,9 @@
       
       <h2 class="current-score">
         {% if data.winning == 'Not playing now.' %}
-            Last Score: Astros: {{ data.astros_score }} - {{ data.opp_name }}: {{ data.opp_score }}
+            Last Score: Astros: {{ data.astros_score }} - {{ data.opp_name }}: {{ data.opp_score }} <br>
             {% if data.astros_score > data.opp_score %}
-             <img src="https://pbs.twimg.com/media/E5QC4MoWUAQYR3D.jpg" width="50%" height="50%">
+             <img src="https://pbs.twimg.com/media/E5QC4MoWUAQYR3D.jpg">
             {% endif %}
         {% else %}
             Astros: {{ data.astros_score }} - {{ data.opp_name }}: {{ data.opp_score }}
