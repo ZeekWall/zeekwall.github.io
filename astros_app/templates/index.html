@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;800&display=swap");
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'astros_app/style.css' %}" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="main">Are The Astros Winning?</h1>
+      {% if data.winning == "YES!" %}
+        <h1 class="y">{{ data.winning }}</h1>
+      {% elif data.winning == "No..." %}
+        <h1 class="n">{{ data.winning }}</h1>
+      {% elif data.winning == "Not playing now." %}
+        <h1 class="yn">{{ data.winning }}</h1>
+      {% elif data.winning == "Tied" %}
+        <h1 class="t">{{ data.winning }}</h1>
+      {% endif %}
+
+      
+      <h2 class="current-score">
+        {% if data.winning == 'Not playing now.' %}
+            Last Score: Astros: {{ data.astros_score }} - {{ data.opp_name }}: {{ data.opp_score }}
+        {% else %}
+            Astros: {{ data.astros_score }} - {{ data.opp_name }}: {{ data.opp_score }}
+        {% endif %}
+      </h2>
+      <script src="index.js"></script>
+    </div>
+  </body>
+</html>

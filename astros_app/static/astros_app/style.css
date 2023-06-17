@@ -1,0 +1,74 @@
+body {
+  font-family: "Playfair Display", serif;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(235, 110, 31, 1) 50%,
+    rgba(0, 45, 98, 1) 100%
+  );
+  font-weight: 400;
+  text-shadow: 0 0 10px black, 0 0 10px black;
+  
+}
+
+.container {
+  background: rgba(255, 255, 255, 0);
+  margin: auto;
+}
+
+h1{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  font-size: 70px;
+  color: rgb(0, 165, 248);
+  text-shadow: 0 0 10px black, 0 0 10px black;
+}
+
+h1.yn {
+  font-weight: 800;
+  font-size: 80px;
+}
+
+h1.t {
+  font-weight: 800;
+  font-size: 80px;
+}
+
+h1.y {
+  font-weight: 800;
+  font-size: 80px;
+  color: green;
+}
+
+h1.n {
+  font-weight: 800;
+  font-size: 80px;
+  color: red;
+}
+
+h2 {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  font-size: 50px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 1px black, 0 0 1px black;
+  background-color: rgba(0, 45, 98, 1);
+}
+
+.test {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.test:hover {
+  background-color: aqua;
+}
