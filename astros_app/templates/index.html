@@ -31,7 +31,7 @@
       <h2 class="current-score">
         {% if data.winning == 'Not playing now.' %}
             Last Score: Astros: {{ data.astros_score }} - {{ data.opp_name }}: {{ data.opp_score }} <br>
-            {% if data.astros_score < data.opp_score %}
+            {% if data.astros_score > data.opp_score %}
              <img src="https://pbs.twimg.com/media/E5QC4MoWUAQYR3D.jpg">
             {% endif %}
         {% else %}
