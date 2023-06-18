@@ -27,17 +27,24 @@
         <h1 class="t">{{ data.winning }}</h1>
       {% endif %}
 
-      
       <h2 class="current-score">
         {% if data.winning == 'Not playing now.' %}
-            Last Score: Astros: {{ data.astros_score }} - {{ data.opp_name }}: {{ data.opp_score }} <br>
-            {% if data.astros_score > data.opp_score %}
-             <img src="https://pbs.twimg.com/media/E5QC4MoWUAQYR3D.jpg">
-            {% endif %}
+            Last Game's Score: Astros: {{ data.astros_score }} &nbsp;&nbsp; {{ data.opp_name }}: {{ data.opp_score }} <br>
         {% else %}
-            Astros: {{ data.astros_score }} - {{ data.opp_name }}: {{ data.opp_score }}
+            Astros: {{ data.astros_score }} {{ data.opp_name }}: {{ data.opp_score }}
         {% endif %}
       </h2>
+      {% if data.astros_score > data.opp_score %}
+        <img src="https://pbs.twimg.com/media/E5QC4MoWUAQYR3D.jpg">
+      {% endif %}
+    </div>
+    <div>
+      <ul style="list-style-type:none; margin: auto; text-align:center;">
+        {% for key, value in data.highlights_data.items %}
+        <li style="font-size: 300%; color: white;">{{ value.0 }} </li>
+        <li><video width='640px' height = '360px' src="{{value.1}}" type="video/mp4" controls></li>
+        {% endfor %}
+      </ul>
     </div>
   </body>
 </html>

@@ -1,10 +1,11 @@
 body {
   font-family: "Playfair Display", serif;
+  background: rgb(0, 45, 98);
   background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1) 0%,
+    180deg,
+    rgba(0, 45, 98, 1) 0%,
     rgba(235, 110, 31, 1) 50%,
-    rgba(0, 45, 98, 1) 100%
+    rgba(255, 255, 255, 1) 100%
   );
   font-weight: 400;
   text-shadow: 0 0 10px black, 0 0 10px black;
@@ -15,15 +16,14 @@ body {
   background: rgba(255, 255, 255, 0);
   margin: 0px;
   text-align: center;
-
 }
 
-h1{
+h1 {
   margin: 0px;
   padding: 10px;
   text-align: center;
   font-size: 7vh;
-  color: rgb(0, 165, 248);
+  color: rgba(235, 110, 31, 1);
   text-shadow: 0 0 10px black, 0 0 10px black;
 }
 
@@ -57,7 +57,7 @@ h2 {
   font-size: 50px;
   color: rgb(255, 255, 255);
   text-shadow: 0 0 1px black, 0 0 1px black;
-  background-color: rgba(0, 45, 98, 1);
+  background-color: rgba(235, 110, 31, 1);
   border-radius: 10px;
 }
 
@@ -78,4 +78,14 @@ img {
   max-width: 100%;
   min-width: 300px;
   height: auto;
+}
+
+li {
+  font-size: 5%;
+  text-align: center;
+  margin: auto;
+}
+
+video {
+  max-width: 100%;
 }

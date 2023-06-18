@@ -2,6 +2,7 @@ def get_score():
 
     import statsapi
     from datetime import date
+    import json
 
     most_recent_game_id = statsapi.next_game(117)
     schedule = statsapi.schedule(team=117, start_date=date.today(), end_date=date.today())
@@ -12,6 +13,19 @@ def get_score():
             "fields": "gameData,teams,teamName,shortName,status,abstractGameState,liveData,linescore,innings,num,home,away,runs,hits,errors",
         })
     
+    events = statsapi.game_scoring_play_data(current_game)
+    print(events)
+    
+    highlights = (statsapi.game_highlight_data(current_game))
+    highlights_data = {}
+
+    for item in highlights:
+        if item['type'] == 'video':
+            highlights_data[item['date']] = [item['title'],item['playbacks'][0]['url']]
+
+    keys = list(highlights_data.keys())
+    keys.sort()
+    sorted_hd = {i: highlights_data[i] for i in keys}
 
     game_state = game["gameData"]["status"]["abstractGameState"]
 
@@ -21,7 +35,6 @@ def get_score():
     home_score = game["liveData"]["linescore"]["teams"]['home']['runs']
     away_score = game["liveData"]["linescore"]["teams"]['away']['runs']
 
-    playing = None
     winning = None
 
     astros_score = home_score if home_name == "Astros" else away_score
@@ -41,11 +54,19 @@ def get_score():
         elif astros_score == opp_score:
             winning = "Tied"
 
+    r_highlights_data = {}
+
+    for key in reversed(sorted_hd):
+        value = sorted_hd[key]
+        r_highlights_data[key] =  value
+
+
     data = {
         'winning': winning,
         'opp_name': opp_name,
         'astros_score': astros_score,
         'opp_score': opp_score,
+        'highlights_data': r_highlights_data
         }
 
     return data
