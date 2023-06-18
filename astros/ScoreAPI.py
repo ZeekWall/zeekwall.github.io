@@ -13,8 +13,15 @@ def get_score():
             "fields": "gameData,teams,teamName,shortName,status,abstractGameState,liveData,linescore,innings,num,home,away,runs,hits,errors",
         })
     
-    events = statsapi.game_scoring_play_data(current_game)
-    print(events)
+    events = statsapi.game_scoring_plays(current_game)
+    events = events.split('\n')
+
+    real_e = []
+
+    for event in events:
+        if "Top" in event or "Bottom" in event:
+            real_e.append(event)
+
     
     highlights = (statsapi.game_highlight_data(current_game))
     highlights_data = {}
@@ -66,7 +73,8 @@ def get_score():
         'opp_name': opp_name,
         'astros_score': astros_score,
         'opp_score': opp_score,
-        'highlights_data': r_highlights_data
+        'highlights_data': r_highlights_data,
+        'scoring_plays': events[::-1]
         }
 
     return data

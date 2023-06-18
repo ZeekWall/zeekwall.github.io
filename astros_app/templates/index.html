@@ -27,16 +27,26 @@
         <h1 class="t">{{ data.winning }}</h1>
       {% endif %}
 
-      <h2 class="current-score">
+      <button class="current-score collapsible" type="button">
         {% if data.winning == 'Not playing now.' %}
             Last Game's Score: Astros: {{ data.astros_score }} &nbsp;&nbsp; {{ data.opp_name }}: {{ data.opp_score }} <br>
         {% else %}
             Astros: {{ data.astros_score }} {{ data.opp_name }}: {{ data.opp_score }}
         {% endif %}
-      </h2>
+      </button>
+      <div class="content">
+        {% for play in data.scoring_plays %}
+          <p>{{play}}</p>
+        {% endfor %}
+      </div>
+      
+        
+      
+      
       {% if data.astros_score > data.opp_score %}
         <img src="https://pbs.twimg.com/media/E5QC4MoWUAQYR3D.jpg">
       {% endif %}
+      
     </div>
     <div>
       <ul style="list-style-type:none; margin: auto; text-align:center;">
@@ -46,5 +56,18 @@
         {% endfor %}
       </ul>
     </div>
+    <script>
+      var coll = document.querySelector(".collapsible");
+
+      coll.addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    </script>
   </body>
 </html>

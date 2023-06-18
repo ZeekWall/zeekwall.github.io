@@ -61,17 +61,51 @@ h2 {
   border-radius: 10px;
 }
 
-.test {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+/* button{
+  margin: auto;
+  width: 85%;
+  padding: 10px;
+  text-align: center;
+  font-size: 50px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 1px black, 0 0 1px black;
+  background-color: rgba(235, 110, 31, 1);
+  border-radius: 10px;
+} */
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  margin: auto;
+  width: 85%;
+  padding: 10px;
+  text-align: center;
+  font-size: 50px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 1px black, 0 0 1px black;
+  background-color: rgba(235, 110, 31, 1);
+  border-radius: 10px 10px 0px 0px;
+  font-family: "Playfair Display", serif;
 }
 
-.test:hover {
-  background-color: aqua;
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: rgb(175, 82, 24);
+}
+
+p {
+  margin: 4px;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0px;
+  width: 85%;
+  text-align: center;
+  margin: 0px auto 0px !important;
+  display: none;
+  overflow: hidden;
+  color: white;
+  background-color: rgba(235, 110, 31, 1);
 }
 
 img {
