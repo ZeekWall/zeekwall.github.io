@@ -6,7 +6,10 @@ def get_score():
 
     most_recent_game_id = statsapi.next_game(117)
     schedule = statsapi.schedule(team=117, start_date=date.today(), end_date=date.today())
-    current_game = schedule[0]['game_id']
+    try:
+        current_game = schedule[0]['game_id']
+    except IndexError:
+        current_game = statsapi.next_game(117)
 
     game = statsapi.get('game', params = {
             "gamePk": current_game,
@@ -39,8 +42,11 @@ def get_score():
     away_name = game["gameData"]["teams"]["away"]["teamName"]
     home_name = game["gameData"]["teams"]["home"]["teamName"]
 
-    home_score = game["liveData"]["linescore"]["teams"]['home']['runs']
-    away_score = game["liveData"]["linescore"]["teams"]['away']['runs']
+    try:
+        home_score = game["liveData"]["linescore"]["teams"]['home']['runs']
+        away_score = game["liveData"]["linescore"]["teams"]['away']['runs']
+    except KeyError:
+        home_score, away_score = 0, 0
 
     winning = None
 
