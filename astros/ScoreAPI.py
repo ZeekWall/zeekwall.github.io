@@ -15,8 +15,6 @@ def get_score():
             "gamePk": current_game,
             "fields": "gameData,teams,teamName,shortName,status,abstractGameState,liveData,linescore,innings,num,home,away,runs,hits,errors",
         })
-    
-    print(game)
 
     events = statsapi.game_scoring_plays(current_game)
     events = events.split('\n')
