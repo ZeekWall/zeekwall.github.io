@@ -84,5 +84,3 @@ def get_score():
         }
 
     return data
-
-get_score()
