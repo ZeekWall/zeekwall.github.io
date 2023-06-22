@@ -9,13 +9,15 @@ def get_score():
     try:
         current_game = schedule[0]['game_id']
     except IndexError:
-        current_game = statsapi.next_game(117)
+        current_game = statsapi.last_game(117)
 
     game = statsapi.get('game', params = {
             "gamePk": current_game,
             "fields": "gameData,teams,teamName,shortName,status,abstractGameState,liveData,linescore,innings,num,home,away,runs,hits,errors",
         })
     
+    print(game)
+
     events = statsapi.game_scoring_plays(current_game)
     events = events.split('\n')
 
