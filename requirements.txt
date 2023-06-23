@@ -1,0 +1,4 @@
+martor
+gunicorn
+MLB-StatsAPI
+django
